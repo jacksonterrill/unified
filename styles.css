@@ -1,0 +1,28 @@
+.table 
+{
+    border-collapse: collapse;
+    margin: auto;
+    font-size: 0.9em;
+    font-family: 'Libre Franklin', sans-serif;
+    min-width: 400px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    text-align: center;
+}
+
+.table th 
+{
+    background-color: #BED3E8;
+    color: #ffffff;
+}
+
+.table-schools
+{
+	background-color: #99badd;
+    color: #ffffff;
+}
+
+.logo
+{
+	font-family: 'Libre Franklin', sans-serif;
+	color: #99badd;
+}
