@@ -1,3 +1,106 @@
+:root {
+  --blue: #BED3E8;
+  --white: #ffffff;
+  --darkblue: #3796C7FF;
+}
+
+*
+{
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+
+/* Navigation Styles */
+header
+{
+	background: var(--blue);
+	text-align: center;
+	position: fixed;
+	z-index: 999;
+	width: 100%;
+	display: grid;
+	grid-template-columns: 1fr auto minmax(300px, 3fr) 1fr;
+	top:0;
+}
+
+.logo
+{
+	font-family: 'Libre Franklin', sans-serif;
+	color: var(--white);
+	font-size: 2.4em;
+	font-weight: bold;
+	padding: 10px;
+	grid-column: 2/3;
+}
+
+.logo:hover
+{
+	color: var(--darkblue);
+}
+
+nav
+{
+	text-align: left;
+	top: 100%;
+	left:0;
+	background: var(--blue);
+	width: 100%;
+	grid-column: 3/4;
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+}
+
+nav ul
+{
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	display: flex;
+}
+
+nav li
+{
+	margin-bottom: 0;
+	margin-left: 1em;
+}
+
+nav a
+{
+	font-family: 'Libre Franklin', sans-serif;
+	color: var(--white);
+	font-size: 1.4em;
+	font-weight: bold;
+	text-transform: uppercase;
+	text-decoration: none;
+}
+
+nav a:hover 
+{
+	color: var(--darkblue);
+}
+
+body
+{
+	margin-top:0;
+}
+
+main
+{
+	margin-top: 90px;
+}
+
+.chanceme
+{
+	text-align: center;
+	color: var(--white);
+	background-color: var(--darkblue);
+	margin-left: 200px;
+	margin-right: 200px;
+	box-shadow: rgba(100, 100, 111, 0.3) 0px 7px 29px 0px;
+}
+
 .table 
 {
     border-collapse: collapse;
@@ -11,18 +114,15 @@
 
 .table th 
 {
-    background-color: #BED3E8;
-    color: #ffffff;
+    background-color: var(--blue);
+    color: var(--white);
 }
 
 .table-schools
 {
-	background-color: #99badd;
-    color: #ffffff;
+	background-color: var(--darkblue);
+    color: var(--white);
 }
 
-.logo
-{
-	font-family: 'Libre Franklin', sans-serif;
-	color: #99badd;
-}
+
+
