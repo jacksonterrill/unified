@@ -9,6 +9,7 @@
 		<title> UNIfied </title>
 		<!-- Favicon -->
 		<link rel="stylesheet" href="https://jacksonterrill.github.io/unified/styles.css">
+		<script src="https://jacksonterrill.github.io/unified/unified.js" async></script>
 		<link rel="shortcut icon" href="favicon.ico">
 		<!-- Libre Franklin font from Google Fonts -->
 		<link rel="preconnect" href="https://fonts.gstatic.com">
@@ -21,21 +22,72 @@
 
 			<nav>
 				<ul>
-					<li><a class="navbarlinks" href="#home">Home</a></li>
-	    			<li><a class="navbarlinks" href="#contact">About</a></li>
+					<li><a class="navbarlinks" href="https://jacksonterrill.github.io/unified/index.html">Home</a></li>
+	    			<li><a class="navbarlinks" href="https://jacksonterrill.github.io/unified/about.html">About</a></li>
 	    		</ul>
 	    	</nav>
    		</header>
    		<main>
 			<div class = "chanceme"> 
-				<h3> Chance Me </h3>
-				<h4> Enter Stats Here </h4>
+				<h2><u> Chance Me </u></h2>
+				<div>
+					<ul class = "stat-entry-box">
+						<div class = "stat-entry-subbox">
+							<ul class = "stat">
+								<li>Weighted GPA</li>
+								<li><input type = "number", class = "stat-input", placeholder= "Usually between 2 and 4"></li>
+							</ul>
+							<ul class = "stat">
+								<li>Max Unweighted GPA</li>
+								<li><input type = "number", class = "stat-input", placeholder= "Usually 4"></li>
+							</ul>
+						</div>
+						<div class = "stat-entry-subbox">
+							<ul class = "stat">
+								<li>SAT Math Score</li>
+								<li><input type = "number", class = "stat-input", placeholder= "Between 200 and 800"></li>
+							</ul>
+							<ul class = "stat">
+								<li>SAT Reading Score</li>
+								<li><input type = "number", class = "stat-input", placeholder= "Between 200 and 800"></li>
+							</ul>
+						</div>
+					</ul>
+					<ul class = "stat-entry-box">
+						<div class = "stat-entry-subbox">
+							<ul class = "stat">
+								<li>ACT Math</li>
+								<li><input type = "number", class = "stat-input", placeholder= "Between 1 and 36"></li>
+							</ul>
+							<ul class = "stat">
+								<li>ACT Reading</li>
+								<li><input type = "number", class = "stat-input", placeholder= "Between 1 and 36"></li>
+							</ul>
+						</div>
+						<div class = "stat-entry-subbox">
+							<ul class = "stat">
+								<li>ACT Science</li>
+								<li><input type = "number", class = "stat-input", placeholder= "Between 1 and 36"></li>
+							</ul>
+							<ul class = "stat">
+								<li>ACT English</li>
+								<li><input type = "number", class = "stat-input", placeholder= "Between 1 and 36"></li>
+							</ul>
+						</div>
+					</ul>
+				</div>
 			</div>
 			
 
 			<br>
+			<form autocomplete="off" action="/action_page.php">
+			  <div class="autocomplete" style="width:300px;">
+			    <input id="myInput" type="text" name="myCountry" placeholder="Harvard University">
+			  </div>
+			  <input type="submit">
+			</form>
 
-			<table class = "table", border = "thick">
+			<table id = "table", border = "thick">
 				<tr class = "table-schools">
 					<th> School </th>
 					<td> Harvard University </td><td> Stanford University </td><td> University of Pennsylvania </td><td> Add More... </td>
