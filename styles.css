@@ -21,7 +21,7 @@ header
 	z-index: 999;
 	width: 100%;
 	display: grid;
-	grid-template-columns: 1fr auto minmax(300px, 3fr) 1fr;
+	grid-template-columns: 1fr auto minmax(50px, 3fr) 1fr;
 	top:0;
 }
 
@@ -144,14 +144,14 @@ main
     background-color: var(--blue);
 }
 
-.table-schools
+#table-school td
 {
 	background-color: var(--darkblue);
     color: var(--white);
     height: 60px;
 }
 
-.table-schools th
+#table-school th
 {
 	color: var(--black);
 }
@@ -159,6 +159,8 @@ main
 .autocomplete {
   position: relative;
   display: inline-block;
+  width: auto;
+  color: var(--black);
 }
 
 input {
@@ -169,13 +171,18 @@ input {
 }
 
 input[type=text] {
-  background-color: #f1f1f1;
-  width: 100%;
+  background-color: var(--white);
+  width: 80%;
+}
+
+#SchoolInput[placeholder]
+{
+	text-align: center;
 }
 
 input[type=submit] {
   background-color: DodgerBlue;
-  color: #fff;
+  color: var(--white);
   cursor: pointer;
 }
 
@@ -206,5 +213,5 @@ input[type=submit] {
 /*when navigating through the items using the arrow keys:*/
 .autocomplete-active {
   background-color: DodgerBlue !important; 
-  color: #ffffff; 
+  color: var(--white); 
 }
