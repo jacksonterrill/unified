@@ -109,6 +109,7 @@ function loadData(str)
 
     pos = input.indexOf("|");
   }
+  autocomplete(document.getElementById("SchoolInput"), schools);
 }
 
 function addSchool(school, schools){
@@ -394,4 +395,3 @@ function enforceMinMax(el){
 
 var file = loadFile("https://jacksonterrill.github.io/unified/Sample College Data.txt");
 loadData(file);
-autocomplete(document.getElementById("SchoolInput"), schools);
