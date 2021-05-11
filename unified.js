@@ -104,7 +104,7 @@ function loadData(str)
 
     pos = input.indexOf("|");
     sixyear.push(input.substring(0,pos));
-    input = input.substring(pos+3);
+    input = input.substring(pos+1);
     console.log(input);
 
     pos = input.indexOf("|");
