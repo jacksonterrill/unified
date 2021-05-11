@@ -37,8 +37,9 @@ function loadFile(filePath) {
   return result;
 }
 
-function loadData(input)
+function loadData(str)
 {//Harvard|1|.05|...
+  var input = str.split('\n').join('');
   var pos = input.indexOf("|");
   while (pos!=-1)
   {
