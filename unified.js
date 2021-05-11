@@ -109,7 +109,6 @@ function loadData(str)
 
     pos = input.indexOf("|");
   }
-  autocomplete(document.getElementById("SchoolInput"), schools);
 }
 
 function addSchool(school, schools){
@@ -180,7 +179,7 @@ function deleteSchool(id){
   tableSat.innerHTML = '<th> Average SAT (25th, mean, 75th) </th><td> 1460, 1520, 1580 </td>';
 
   var tableAct = document.getElementById('table-act');
-  tableAct.innerHTML = '<th> Average ACT (25th, mean, 75th) </th><td> 1460, 1520, 1580 </td>';
+  tableAct.innerHTML = '<th> Average ACT (25th, mean, 75th) </th><td> 32, 34, 35 </td>';
 
   var tableGender = document.getElementById('table-gender');
   tableGender.innerHTML = '<th> Male-Female Ratio </th><td> 52% / 48% </td>';
@@ -395,3 +394,5 @@ function enforceMinMax(el){
 
 var file = loadFile("https://jacksonterrill.github.io/unified/Sample College Data.txt");
 loadData(file);
+console.log(schools);
+autocomplete(document.getElementById("SchoolInput"), schools);
