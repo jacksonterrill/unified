@@ -39,56 +39,70 @@ function loadFile(filePath) {
 
 function loadData(str)
 {//Harvard|1|.05|...
+  console.log(str);
   var input = str.split('\n').join('');
+  console.log(input);
   var pos = input.indexOf("|");
   while (pos!=-1)
   {
     schools.push(input.substring(0,pos));
     input = input.substring(pos+1);
+    console.log(input);
 
     pos = input.indexOf("|");
     rankings.push(input.substring(0,pos));
     input = input.substring(pos+1);
+    console.log(input);
 
     pos = input.indexOf("|");
     fullCost.push(input.substring(0,pos));
     input = input.substring(pos+1);
+    console.log(input);
 
     pos = input.indexOf("|");
     avgCost.push(input.substring(0,pos));
     input = input.substring(pos+1);
+    console.log(input);
 
     pos = input.indexOf("|");
     reportedAcceptanceRate.push(input.substring(0,pos));
     input = input.substring(pos+1);
+    console.log(input);
 
     pos = input.indexOf("|");
     numStudents.push(input.substring(0,pos));
     input = input.substring(pos+1);
+    console.log(input);
 
     pos = input.indexOf("|");
     gpa.push(input.substring(0,pos));
     input = input.substring(pos+1);
+    console.log(input);
 
     pos = input.indexOf("|");
     sat.push(input.substring(0,pos));
     input = input.substring(pos+1);
+    console.log(input);
 
     pos = input.indexOf("|");
     act.push(input.substring(0,pos));
     input = input.substring(pos+1);
+    console.log(input);
 
     pos = input.indexOf("|");
     gender.push(input.substring(0,pos));
     input = input.substring(pos+1);
+    console.log(input);
 
     pos = input.indexOf("|");
     fouryear.push(input.substring(0,pos));
     input = input.substring(pos+1);
+    console.log(input);
 
     pos = input.indexOf("|");
     sixyear.push(input.substring(0,pos));
     input = input.substring(pos+1);
+    console.log(input);
 
     pos = input.indexOf("|");
   }
