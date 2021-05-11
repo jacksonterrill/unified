@@ -376,5 +376,5 @@ function enforceMinMax(el){
 
 autocomplete(document.getElementById("SchoolInput"), schools);
 
-var file = loadFile("Sample College Data.txt");
+var file = loadFile("https://jacksonterrill.github.io/unified/Sample College Data.txt");
 loadData(file);
