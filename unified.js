@@ -43,51 +43,51 @@ function loadData(input)
   while (pos!=-1)
   {
     schools.push(input.substring(0,pos));
-    input = input.substing(pos+1);
+    input = input.substring(pos+1);
 
     pos = input.indexOf("|");
     rankings.push(input.substring(0,pos));
-    input = input.substing(pos+1);
+    input = input.substring(pos+1);
 
     pos = input.indexOf("|");
     fullCost.push(input.substring(0,pos));
-    input = input.substing(pos+1);
+    input = input.substring(pos+1);
 
     pos = input.indexOf("|");
     avgCost.push(input.substring(0,pos));
-    input = input.substing(pos+1);
+    input = input.substring(pos+1);
 
     pos = input.indexOf("|");
     reportedAcceptanceRate.push(input.substring(0,pos));
-    input = input.substing(pos+1);
+    input = input.substring(pos+1);
 
     pos = input.indexOf("|");
     numStudents.push(input.substring(0,pos));
-    input = input.substing(pos+1);
+    input = input.substring(pos+1);
 
     pos = input.indexOf("|");
     gpa.push(input.substring(0,pos));
-    input = input.substing(pos+1);
+    input = input.substring(pos+1);
 
     pos = input.indexOf("|");
     sat.push(input.substring(0,pos));
-    input = input.substing(pos+1);
+    input = input.substring(pos+1);
 
     pos = input.indexOf("|");
     act.push(input.substring(0,pos));
-    input = input.substing(pos+1);
+    input = input.substring(pos+1);
 
     pos = input.indexOf("|");
     gender.push(input.substring(0,pos));
-    input = input.substing(pos+1);
+    input = input.substring(pos+1);
 
     pos = input.indexOf("|");
     fouryear.push(input.substring(0,pos));
-    input = input.substing(pos+1);
+    input = input.substring(pos+1);
 
     pos = input.indexOf("|");
     sixyear.push(input.substring(0,pos));
-    input = input.substing(pos+1);
+    input = input.substring(pos+1);
 
     pos = input.indexOf("|");
   }
