@@ -46,6 +46,7 @@ function loadData(str)
   while (pos!=-1)
   {
     schools.push(input.substring(0,pos));
+    console.log("schools = " + schools);
     input = input.substring(pos+1);
     console.log(input);
 
@@ -56,11 +57,13 @@ function loadData(str)
 
     pos = input.indexOf("|");
     fullCost.push(input.substring(0,pos));
+    console.log("fullCost = " + fullCost);
     input = input.substring(pos+1);
     console.log(input);
 
     pos = input.indexOf("|");
     avgCost.push(input.substring(0,pos));
+    console.log("avgCost = " + avgCost);
     input = input.substring(pos+1);
     console.log(input);
 
