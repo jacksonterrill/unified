@@ -219,7 +219,7 @@ function updateTable(){
   row = "";
   var tableAvgCost = document.getElementById('table-avgCost');
   for (var i = 0; i < tAvgCost.length; i++) {
-    row+= '<td>' + tFullCost[i] + '</td>';
+    row+= '<td>' + tAvgCost[i] + '</td>';
     }
   tableAvgCost.innerHTML = '<th> Average Cost (per year) </th>' + row;
 
@@ -392,7 +392,6 @@ function enforceMinMax(el){
   }
 }
 
-autocomplete(document.getElementById("SchoolInput"), schools);
-
 var file = loadFile("https://jacksonterrill.github.io/unified/Sample College Data.txt");
 loadData(file);
+autocomplete(document.getElementById("SchoolInput"), schools);
