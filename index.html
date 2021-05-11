@@ -35,21 +35,21 @@
 						<div class = "stat-entry-subbox">
 							<ul class = "stat">
 								<li>Weighted GPA</li>
-								<li><input type = "number", class = "stat-input", placeholder= "Usually between 2 and 4"></li>
+								<li><input type = "number", class = "stat-input", placeholder= "Usually between 2 and 4", max="4", onkeyup=enforceMinMax(this)></li>
 							</ul>
 							<ul class = "stat">
 								<li>Max Unweighted GPA</li>
-								<li><input type = "number", class = "stat-input", placeholder= "Usually 4"></li>
+								<li><input type = "number", class = "stat-input", placeholder= "Usually 4", max="4", onkeyup=enforceMinMax(this)></li>
 							</ul>
 						</div>
 						<div class = "stat-entry-subbox">
 							<ul class = "stat">
 								<li>SAT Math Score</li>
-								<li><input type = "number", class = "stat-input", placeholder= "Between 200 and 800"></li>
+								<li><input type = "number", class = "stat-input", placeholder= "Between 200 and 800", max="800", onkeyup=enforceMinMax(this)></li>
 							</ul>
 							<ul class = "stat">
 								<li>SAT Reading Score</li>
-								<li><input type = "number", class = "stat-input", placeholder= "Between 200 and 800"></li>
+								<li><input type = "number", class = "stat-input", placeholder= "Between 200 and 800", max="800", onkeyup=enforceMinMax(this)></li>
 							</ul>
 						</div>
 					</ul>
@@ -57,21 +57,21 @@
 						<div class = "stat-entry-subbox">
 							<ul class = "stat">
 								<li>ACT Math</li>
-								<li><input type = "number", class = "stat-input", placeholder= "Between 1 and 36"></li>
+								<li><input type = "number", class = "stat-input", placeholder= "Between 1 and 36", max="36", onkeyup=enforceMinMax(this)></li>
 							</ul>
 							<ul class = "stat">
 								<li>ACT Reading</li>
-								<li><input type = "number", class = "stat-input", placeholder= "Between 1 and 36"></li>
+								<li><input type = "number", class = "stat-input", placeholder= "Between 1 and 36", max="36", onkeyup=enforceMinMax(this)></li>
 							</ul>
 						</div>
 						<div class = "stat-entry-subbox">
 							<ul class = "stat">
 								<li>ACT Science</li>
-								<li><input type = "number", class = "stat-input", placeholder= "Between 1 and 36"></li>
+								<li><input type = "number", class = "stat-input", placeholder= "Between 1 and 36", max="36", onkeyup=enforceMinMax(this)></li>
 							</ul>
 							<ul class = "stat">
 								<li>ACT English</li>
-								<li><input type = "number", class = "stat-input", placeholder= "Between 1 and 36"></li>
+								<li><input type = "number", class = "stat-input", placeholder= "Between 1 and 36", max="36", onkeyup=enforceMinMax(this)></li>
 							</ul>
 						</div>
 					</ul>
@@ -85,53 +85,64 @@
 			<table id = "table", border = "thick">
 				<thead>
 					<tr id = "table-school">
-						<th> School </th>
-						<td> 
+						<th> School 
 							<form autocomplete="off" action="javascript:submit">
 							  	<div class="autocomplete">
 							   		<input id="SchoolInput" type="text" placeholder="Harvard University">
 								</div>
 							</form> 
-						</td>
-		<td> Stanford University </td><td> University of Pennsylvania </td><td> Add More... </td>
+						</th>
+						<td> Example University </td>
 					</tr>
 				</thead>
 				<tbody>
+					<tr id = "table-rankings">
+						<th> US News Ranking </th>
+						<td> 1st </td>
+					</tr>
+					<tr id = "table-fullCost">
+						<th> Full Cost (per year) </th>
+						<td> $75,000 </td>
+					</tr>
+					<tr id = "table-avgCost">
+						<th> Average Cost (per year) </th>
+						<td> $40,000 </td>
+					</tr>
 					<tr id = "table-calc-acceptance">
 						<th> Calculated Acceptance Rate </th>
-						<td> .1 </td><td> .1 </td><td> .14 </td><td>  </td>
+						<td> .1 </td>
 					</tr>
 					<tr id = "table-report-acceptance">
 						<th> Reported Acceptance Rate </th>
-						<td> .05 </td><td> .05 </td><td> .08 </td><td>  </td>
+						<td> .05 </td>
 					</tr>
 					<tr id = "table-num-students">
 						<th> Applicants, Accepted, Enrolled </th>
-						<td> 43,330, 2,009, 1,649 </td><td>  </td><td>  </td><td>  </td>
+						<td> 43,330, 2,009, 1,649 </td>
 					</tr>
 					<tr id = "table-gpa">
 						<th> Average GPA (25th, mean, 75th) </th>
-						<td> NA, 4.18, NA </td><td> 25th, mean, 75th </td><td> 25th, mean, 75th </td><td>  </td>
+						<td> NA, 4.18, NA </td>
 					</tr>
 					<tr id = "table-sat">
 						<th> Average SAT (25th, mean, 75th) </th>
-						<td> 1460, 1520, 1580 </td><td>  </td><td>  </td><td>  </td>
+						<td> 1460, 1520, 1580 </td>
 					</tr>
 					<tr id = "table-act">
 						<th> Average ACT (25th, mean, 75th) </th>
-						<td> 1460, 1520, 1580 </td><td>  </td><td>  </td><td>  </td>
+						<td> 1460, 1520, 1580 </td>
 					</tr>
 					<tr id = "table-gender">
 						<th> Male-Female Ratio </th>
-						<td> 52% / 48% </td><td>  </td><td>  </td><td>  </td>
+						<td> 52% / 48% </td>
 					</tr>
 					<tr id = "table-4yr-grad">
 						<th> 4 Year Graduation Rate </th>
-						<td> 85% </td><td>  </td><td>  </td><td>  </td>
+						<td> 85% </td>
 					</tr>
 					<tr id = "table-6yr-grad">
 						<th> 6 Year Graduation Rate </th>
-						<td> 97% </td><td>  </td><td>  </td><td>  </td>
+						<td> 97% </td>
 					</tr>
 				</tbody>
 		</main>

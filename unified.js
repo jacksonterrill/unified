@@ -1,7 +1,8 @@
 /*An array containing all the school names*/
 var schools = ["Afghanistan","Albania","Algeria","Andorra","Angola","Anguilla","Antigua & Barbuda","Argentina","Armenia","Aruba","Australia","Austria","Azerbaijan","Bahamas","Bahrain","Bangladesh","Barbados","Belarus","Belgium","Belize","Benin","Bermuda","Bhutan","Bolivia","Bosnia & Herzegovina","Botswana","Brazil","British Virgin Islands","Brunei","Bulgaria","Burkina Faso","Burundi","Cambodia","Cameroon","Canada","Cape Verde","Cayman Islands","Central Arfrican Republic","Chad","Chile","China","Colombia","Congo","Cook Islands","Costa Rica","Cote D Ivoire","Croatia","Cuba","Curacao","Cyprus","Czech Republic","Denmark","Djibouti","Dominica","Dominican Republic","Ecuador","Egypt","El Salvador","Equatorial Guinea","Eritrea","Estonia","Ethiopia","Falkland Islands","Faroe Islands","Fiji","Finland","France","French Polynesia","French West Indies","Gabon","Gambia","Georgia","Germany","Ghana","Gibraltar","Greece","Greenland","Grenada","Guam","Guatemala","Guernsey","Guinea","Guinea Bissau","Guyana","Haiti","Honduras","Hong Kong","Hungary","Iceland","India","Indonesia","Iran","Iraq","Ireland","Isle of Man","Israel","Italy","Jamaica","Japan","Jersey","Jordan","Kazakhstan","Kenya","Kiribati","Kosovo","Kuwait","Kyrgyzstan","Laos","Latvia","Lebanon","Lesotho","Liberia","Libya","Liechtenstein","Lithuania","Luxembourg","Macau","Macedonia","Madagascar","Malawi","Malaysia","Maldives","Mali","Malta","Marshall Islands","Mauritania","Mauritius","Mexico","Micronesia","Moldova","Monaco","Mongolia","Montenegro","Montserrat","Morocco","Mozambique","Myanmar","Namibia","Nauro","Nepal","Netherlands","Netherlands Antilles","New Caledonia","New Zealand","Nicaragua","Niger","Nigeria","North Korea","Norway","Oman","Pakistan","Palau","Palestine","Panama","Papua New Guinea","Paraguay","Peru","Philippines","Poland","Portugal","Puerto Rico","Qatar","Reunion","Romania","Russia","Rwanda","Saint Pierre & Miquelon","Samoa","San Marino","Sao Tome and Principe","Saudi Arabia","Senegal","Serbia","Seychelles","Sierra Leone","Singapore","Slovakia","Slovenia","Solomon Islands","Somalia","South Africa","South Korea","South Sudan","Spain","Sri Lanka","St Kitts & Nevis","St Lucia","St Vincent","Sudan","Suriname","Swaziland","Sweden","Switzerland","Syria","Taiwan","Tajikistan","Tanzania","Thailand","Timor L'Este","Togo","Tonga","Trinidad & Tobago","Tunisia","Turkey","Turkmenistan","Turks & Caicos","Tuvalu","Uganda","Ukraine","United Arab Emirates","United Kingdom","United States of America","Uruguay","Uzbekistan","Vanuatu","Vatican City","Venezuela","Vietnam","Virgin Islands (US)","Yemen","Zambia","Zimbabwe"];
 var rankings = [];
-var calculatedAcceptanceRate = [];
+var fullCost = [];
+var avgCost = [];
 var reportedAcceptanceRate = [];
 var numStudents = [];
 var gpa = [];
@@ -10,6 +11,20 @@ var act = [];
 var gender = [];
 var fouryear = [];
 var sixyear = [];
+
+var tSchools = [];
+var tRankings = [];
+var tFullCost = [];
+var tAvgCost = [];
+var tCalculatedAcceptanceRate = [];
+var tReportedAcceptanceRate = [];
+var tNumStudents = [];
+var tGpa = [];
+var tSat = [];
+var tAct = [];
+var tGender = [];
+var tFouryear = [];
+var tSixyear = [];
 
 function loadFile(filePath) {
   var result = null;
@@ -23,25 +38,231 @@ function loadFile(filePath) {
 }
 
 function loadData(input)
-{
-  input;
+{//Harvard|1|.05|...
+  var pos = input.indexOf("|");
+  while (pos!=-1)
+  {
+    schools.push(input.substring(0,pos));
+    input = input.substing(pos+1);
+
+    pos = input.indexOf("|");
+    rankings.push(input.substring(0,pos));
+    input = input.substing(pos+1);
+
+    pos = input.indexOf("|");
+    fullCost.push(input.substring(0,pos));
+    input = input.substing(pos+1);
+
+    pos = input.indexOf("|");
+    avgCost.push(input.substring(0,pos));
+    input = input.substing(pos+1);
+
+    pos = input.indexOf("|");
+    reportedAcceptanceRate.push(input.substring(0,pos));
+    input = input.substing(pos+1);
+
+    pos = input.indexOf("|");
+    numStudents.push(input.substring(0,pos));
+    input = input.substing(pos+1);
+
+    pos = input.indexOf("|");
+    gpa.push(input.substring(0,pos));
+    input = input.substing(pos+1);
+
+    pos = input.indexOf("|");
+    sat.push(input.substring(0,pos));
+    input = input.substing(pos+1);
+
+    pos = input.indexOf("|");
+    act.push(input.substring(0,pos));
+    input = input.substing(pos+1);
+
+    pos = input.indexOf("|");
+    gender.push(input.substring(0,pos));
+    input = input.substing(pos+1);
+
+    pos = input.indexOf("|");
+    fouryear.push(input.substring(0,pos));
+    input = input.substing(pos+1);
+
+    pos = input.indexOf("|");
+    sixyear.push(input.substring(0,pos));
+    input = input.substing(pos+1);
+
+    pos = input.indexOf("|");
+  }
+}
+
+function addSchool(school, schools){
+  var index = 0;
+  for (var i = 0; i < schools.length; i++) {
+    if (schools[i] == (school)){
+      tSchools.push(school);
+      index = i;
+    }
+  }
+
+  tRankings.push(rankings[index]);
+  tFullCost.push(fullCost[index]);
+  tAvgCost.push(avgCost[index]);
+  tReportedAcceptanceRate.push(reportedAcceptanceRate[index]);
+  tNumStudents.push(numStudents[index]);
+  tGpa.push(gpa[index]);
+  tSat.push(sat[index]);
+  tAct.push(act[index]);
+  tGender.push(gender[index]);
+  tFouryear.push(fouryear[index]);
+  tSixyear.push(sixyear[index]);
+
+  updateTable();
+}
+
+function deleteSchool(id){
+  var index = id.substring(id.indexOf("-")+1);
+  tSchools.splice(index,1);
+  tRankings.splice(index,1);
+  tFullCost.splice(index,1);
+  tAvgCost.splice(index,1);
+  tReportedAcceptanceRate.splice(index,1);
+  tNumStudents.splice(index,1);
+  tGpa.splice(index,1);
+  tSat.splice(index,1);
+  tAct.splice(index,1);
+  tGender.splice(index,1);
+  tFouryear.splice(index,1);
+  tSixyear.splice(index,1);
+
+  updateTable();
+
+  if (tSchools.length == 0){
+    var tableSchool = document.getElementById('table-school');
+    tableSchool.innerHTML = '<th> School <form autocomplete="off" action="javascript:submit"><div class="autocomplete"><input id="SchoolInput" type="text" placeholder="Harvard University"></div></form></th><td> Example University </td>';
+  autocomplete(document.getElementById("SchoolInput"), schools);
+
+  var tableRankings = document.getElementById('table-rankings');
+  tableRankings.innerHTML = '<th> US News Ranking </th><td> 1st </td>';
+
+  var tableFullCost = document.getElementById('table-fullCost');
+  tableFullCost.innerHTML = '<th> Full Cost (per year) </th><td> $75,000 </td>';
+
+  var tableAvgCost = document.getElementById('table-avgCost');
+  tableAvgCost.innerHTML = '<th> Average Cost (per year) </th><td> $40,000 </td>';
+
+  var tableReportedAcceptanceRate = document.getElementById('table-report-acceptance');
+  tableReportedAcceptanceRate.innerHTML = '<th> Reported Acceptance Rate </th><td> .05 </td>';
+
+  var tableNumStudents = document.getElementById('table-num-students');
+  tableNumStudents.innerHTML = '<th> Applicants, Accepted, Enrolled </th><td> 43,330, 2,009, 1,649 </td>';
+
+  var tableGpa = document.getElementById('table-gpa');
+  tableGpa.innerHTML = '<th> Average GPA (25th, mean, 75th) </th><td> NA, 4.18, NA </td>';
+
+  var tableSat = document.getElementById('table-sat');
+  tableSat.innerHTML = '<th> Average SAT (25th, mean, 75th) </th><td> 1460, 1520, 1580 </td>';
+
+  var tableAct = document.getElementById('table-act');
+  tableAct.innerHTML = '<th> Average ACT (25th, mean, 75th) </th><td> 1460, 1520, 1580 </td>';
+
+  var tableGender = document.getElementById('table-gender');
+  tableGender.innerHTML = '<th> Male-Female Ratio </th><td> 52% / 48% </td>';
+
+  var tableFouryear = document.getElementById('table-4yr-grad');
+  tableFouryear.innerHTML = '<th> 4 Year Graduation Rate </th><td> 85% </td>';
+
+  var tableSixyear = document.getElementById('table-6yr-grad');
+  tableSixyear.innerHTML = '<th> 6 Year Graduation Rate </th><td> 97% </td>';
+  }
+}
+
+function updateTable(){
+  var row= "";
+
+  var tableSchool = document.getElementById('table-school');
+  for (var i = 0; i < tSchools.length; i++) {
+    row+= '<td><div class=delete-container><button onclick="deleteSchool(this.id)" class=delete id=delete-'+i+'>x</button></div>' + tSchools[i] + '</td>';
+    }
+  tableSchool.innerHTML = '<th> School <form autocomplete="off" action="javascript:submit"><div class="autocomplete"><input id="SchoolInput" type="text" placeholder="Harvard University"></div></form></th>' + row;
+  autocomplete(document.getElementById("SchoolInput"), schools);
+
+  row = "";
+  var tableRankings = document.getElementById('table-rankings');
+  for (var i = 0; i < tRankings.length; i++) {
+    row+= '<td>' + tRankings[i] + '</td>';
+    }
+  tableRankings.innerHTML = '<th> US News Ranking </th>' + row;
+
+  row = "";
+  var tableFullCost = document.getElementById('table-fullCost');
+  for (var i = 0; i < tFullCost.length; i++) {
+    row+= '<td>' + tFullCost[i] + '</td>';
+    }
+  tableFullCost.innerHTML = '<th> Full Cost (per year) </th>' + row;
+
+  row = "";
+  var tableAvgCost = document.getElementById('table-avgCost');
+  for (var i = 0; i < tAvgCost.length; i++) {
+    row+= '<td>' + tFullCost[i] + '</td>';
+    }
+  tableAvgCost.innerHTML = '<th> Average Cost (per year) </th>' + row;
+
+  row = "";
+  var tableReportedAcceptanceRate = document.getElementById('table-report-acceptance');
+  for (var i = 0; i < tReportedAcceptanceRate.length; i++) {
+    row+= '<td>' + tReportedAcceptanceRate[i] + '</td>';
+    }
+  tableReportedAcceptanceRate.innerHTML = '<th> Reported Acceptance Rate </th>' + row;
+
+  row = "";
+  var tableNumStudents = document.getElementById('table-num-students');
+  for (var i = 0; i < tNumStudents.length; i++) {
+    row+= '<td>' + tNumStudents[i] + '</td>';
+    }
+  tableNumStudents.innerHTML = '<th> Applicants, Accepted, Enrolled </th>' + row;
+
+  row = "";
+  var tableGpa = document.getElementById('table-gpa');
+  for (var i = 0; i < tGpa.length; i++) {
+    row+= '<td>' + tGpa[i] + '</td>';
+    }
+  tableGpa.innerHTML = '<th> Average GPA (25th, mean, 75th) </th>' + row;
+
+  row = "";
+  var tableSat = document.getElementById('table-sat');
+  for (var i = 0; i < tSat.length; i++) {
+    row+= '<td>' + tSat[i] + '</td>';
+    }
+  tableSat.innerHTML = '<th> Average SAT (25th, mean, 75th) </th>' + row;
+
+  row = "";
+  var tableAct = document.getElementById('table-act');
+  for (var i = 0; i < tAct.length; i++) {
+    row+= '<td>' + tAct[i] + '</td>';
+    }
+  tableAct.innerHTML = '<th> Average ACT (25th, mean, 75th) </th>' + row;
+
+  row = "";
+  var tableGender = document.getElementById('table-gender');
+  for (var i = 0; i < tGender.length; i++) {
+    row+= '<td>' + tGender[i] + '</td>';
+    }
+  tableGender.innerHTML = '<th> Male-Female Ratio' + row;
+
+  row = "";
+  var tableFouryear = document.getElementById('table-4yr-grad');
+  for (var i = 0; i < tFouryear.length; i++) {
+    row+= '<td>' + tFouryear[i] + '</td>';
+    }
+  tableFouryear.innerHTML = '<th> 4 Year Graduation Rate </th>' + row;
+
+  row = "";
+  var tableSixyear = document.getElementById('table-6yr-grad');
+  for (var i = 0; i < tSixyear.length; i++) {
+    row+= '<td>' + tSixyear[i] + '</td>';
+    }
+  tableSixyear.innerHTML = '<th> 6 Year Graduation Rate </th>' + row;
 }
 
 
-
-
-
-
-function addSchool(school)
-{
-  var tbl = document.getElementById('table');
-
-  //add school name
-  var schools = document.getElementById('table-school');
-  var newCell = schools.insertCell(schools.cells.length); // insert new cell at end of each row*
-  newCell.innerHTML = school;
-
-}
 
 function autocomplete(inp, arr) {
   /*the autocomplete function takes two arguments,
@@ -76,7 +297,7 @@ function autocomplete(inp, arr) {
           b.addEventListener("click", function(e) {
               /*insert the value for the autocomplete text field:*/
               inp.value = this.getElementsByTagName("input")[0].value;
-              addSchool(val);
+              addSchool(inp.value, schools);
               /*close the list of autocompleted values,
               (or any other open lists of autocompleted values:*/
               closeAllLists();
@@ -142,10 +363,20 @@ function autocomplete(inp, arr) {
   });
 }
 
+function enforceMinMax(el){
+  if(el.value != ""){
+    if(parseInt(el.value) < parseInt(el.min)){
+      el.value = el.min;
+    }
+    if(parseInt(el.value) > parseInt(el.max)){
+      el.value = el.max;
+    }
+  }
+}
+
+autocomplete(document.getElementById("SchoolInput"), schools);
 
 var file = loadFile("Sample College Data.txt");
-addSchool(file);
 loadData(file);
 
 /*initiate the autocomplete function on the "myInput" element, and pass along the schools array as possible autocomplete values:*/
-autocomplete(document.getElementById("SchoolInput"), schools);
