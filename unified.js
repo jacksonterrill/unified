@@ -40,7 +40,7 @@ function loadFile(filePath) {
 function loadData(str)
 {//Harvard|1|.05|...
   console.log(str);
-  var input = str.split('\n').join('');
+  var input = str.replace(/(\r\n|\n|\r)/gm, "");
   console.log(input);
   var pos = input.indexOf("|");
   while (pos!=-1)
@@ -104,7 +104,7 @@ function loadData(str)
 
     pos = input.indexOf("|");
     sixyear.push(input.substring(0,pos));
-    input = input.substring(pos+1);
+    input = input.substring(pos+3);
     console.log(input);
 
     pos = input.indexOf("|");
