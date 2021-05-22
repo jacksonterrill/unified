@@ -373,7 +373,7 @@ function enforceMinMax(el){
   }
 }
 
-var file = loadFile("https://jacksonterrill.github.io/unified/Sample College Data.txt");
+var file = loadFile("https://jacksonterrill.github.io/unified/CollegeData.txt");
 loadData(file);
 console.log(schools);
 autocomplete(document.getElementById("SchoolInput"), schools);
