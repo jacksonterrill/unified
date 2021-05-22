@@ -5,12 +5,11 @@ var fullCost = [];
 var avgCost = [];
 var reportedAcceptanceRate = [];
 var numStudents = [];
-var gpa = [];
 var sat = [];
 var act = [];
 var gender = [];
-var fouryear = [];
-var sixyear = [];
+var gradRate = [];
+var facultyRatio = [];
 
 var tSchools = [];
 var tRankings = [];
@@ -19,12 +18,11 @@ var tAvgCost = [];
 var tCalculatedAcceptanceRate = [];
 var tReportedAcceptanceRate = [];
 var tNumStudents = [];
-var tGpa = [];
 var tSat = [];
 var tAct = [];
 var tGender = [];
-var tFouryear = [];
-var tSixyear = [];
+var tGradRate = [];
+var tFacultyRatio = [];
 
 function loadFile(filePath) {
   var result = null;
@@ -78,11 +76,6 @@ function loadData(str)
     console.log(input);
 
     pos = input.indexOf("|");
-    gpa.push(input.substring(0,pos));
-    input = input.substring(pos+1);
-    console.log(input);
-
-    pos = input.indexOf("|");
     sat.push(input.substring(0,pos));
     input = input.substring(pos+1);
     console.log(input);
@@ -98,12 +91,12 @@ function loadData(str)
     console.log(input);
 
     pos = input.indexOf("|");
-    fouryear.push(input.substring(0,pos));
+    gradRate.push(input.substring(0,pos));
     input = input.substring(pos+1);
     console.log(input);
 
     pos = input.indexOf("|");
-    sixyear.push(input.substring(0,pos));
+    facultyRatio.push(input.substring(0,pos));
     input = input.substring(pos+1);
     console.log(input);
 
@@ -125,12 +118,11 @@ function addSchool(school, schools){
   tAvgCost.push(avgCost[index]);
   tReportedAcceptanceRate.push(reportedAcceptanceRate[index]);
   tNumStudents.push(numStudents[index]);
-  tGpa.push(gpa[index]);
   tSat.push(sat[index]);
   tAct.push(act[index]);
   tGender.push(gender[index]);
-  tFouryear.push(fouryear[index]);
-  tSixyear.push(sixyear[index]);
+  tGradRate.push(gradRate[index]);
+  tFacultyRatio.push(facultyRatio[index]);
 
   updateTable();
 }
@@ -143,12 +135,11 @@ function deleteSchool(id){
   tAvgCost.splice(index,1);
   tReportedAcceptanceRate.splice(index,1);
   tNumStudents.splice(index,1);
-  tGpa.splice(index,1);
   tSat.splice(index,1);
   tAct.splice(index,1);
   tGender.splice(index,1);
-  tFouryear.splice(index,1);
-  tSixyear.splice(index,1);
+  tGradRate.splice(index,1);
+  tFacultyRatio.splice(index,1);
 
   updateTable();
 
@@ -172,9 +163,6 @@ function deleteSchool(id){
   var tableNumStudents = document.getElementById('table-num-students');
   tableNumStudents.innerHTML = '<th> Applicants, Accepted, Enrolled </th><td> 43,330, 2,009, 1,649 </td>';
 
-  var tableGpa = document.getElementById('table-gpa');
-  tableGpa.innerHTML = '<th> Average GPA (25th, mean, 75th) </th><td> NA, 4.18, NA </td>';
-
   var tableSat = document.getElementById('table-sat');
   tableSat.innerHTML = '<th> Average SAT (25th, mean, 75th) </th><td> 1460, 1520, 1580 </td>';
 
@@ -184,11 +172,11 @@ function deleteSchool(id){
   var tableGender = document.getElementById('table-gender');
   tableGender.innerHTML = '<th> Male-Female Ratio </th><td> 52% / 48% </td>';
 
-  var tableFouryear = document.getElementById('table-4yr-grad');
-  tableFouryear.innerHTML = '<th> 4 Year Graduation Rate </th><td> 85% </td>';
+  var tableGradRate = document.getElementById('table-gradRate');
+  tableGradRate.innerHTML = '<th> Graduation Rate </th><td> 85% </td>';
 
-  var tableSixyear = document.getElementById('table-6yr-grad');
-  tableSixyear.innerHTML = '<th> 6 Year Graduation Rate </th><td> 97% </td>';
+  var tableFacultyRatio = document.getElementById('table-facultyRatio');
+  tableFacultyRatio.innerHTML = '<th> Student:Faculty Ratio </th><td> 8:1 </td>';
   }
 }
 
@@ -238,13 +226,6 @@ function updateTable(){
   tableNumStudents.innerHTML = '<th> Applicants, Accepted, Enrolled </th>' + row;
 
   row = "";
-  var tableGpa = document.getElementById('table-gpa');
-  for (var i = 0; i < tGpa.length; i++) {
-    row+= '<td>' + tGpa[i] + '</td>';
-    }
-  tableGpa.innerHTML = '<th> Average GPA (25th, mean, 75th) </th>' + row;
-
-  row = "";
   var tableSat = document.getElementById('table-sat');
   for (var i = 0; i < tSat.length; i++) {
     row+= '<td>' + tSat[i] + '</td>';
@@ -266,18 +247,18 @@ function updateTable(){
   tableGender.innerHTML = '<th> Male-Female Ratio' + row;
 
   row = "";
-  var tableFouryear = document.getElementById('table-4yr-grad');
-  for (var i = 0; i < tFouryear.length; i++) {
-    row+= '<td>' + tFouryear[i] + '</td>';
+  var tableGradRate = document.getElementById('table-gradRate');
+  for (var i = 0; i < tGradRate.length; i++) {
+    row+= '<td>' + tGradRate[i] + '</td>';
     }
-  tableFouryear.innerHTML = '<th> 4 Year Graduation Rate </th>' + row;
+  tableGradRate.innerHTML = '<th> Graduation Rate </th>' + row;
 
   row = "";
-  var tableSixyear = document.getElementById('table-6yr-grad');
-  for (var i = 0; i < tSixyear.length; i++) {
-    row+= '<td>' + tSixyear[i] + '</td>';
+  var tableFacultyRatio = document.getElementById('table-facultyRatio');
+  for (var i = 0; i < tFacultyRatio.length; i++) {
+    row+= '<td>' + tFacultyRatio[i] + '</td>';
     }
-  tableSixyear.innerHTML = '<th> 6 Year Graduation Rate </th>' + row;
+  tableFacultyRatio.innerHTML = '<th> Student:Faculty Ratio </th>' + row;
 }
 
 
